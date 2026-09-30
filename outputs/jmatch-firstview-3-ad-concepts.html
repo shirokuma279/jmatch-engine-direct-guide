@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Jマッチエンジン｜冒頭カルーセル</title>
-<meta name="description" content="補助金活用で浮いた資金の使い道を描く、5秒切り替えの商談用ファーストビュー">
+<meta name="description" content="補助金活用で浮いた資金の使い道を描く、7秒切り替えの商談用ファーストビュー">
 <style>*{box-sizing:border-box}html,body{margin:0;background:#171d1a;font-family:"Noto Sans JP","Yu Gothic",Meiryo,sans-serif}button{font:inherit}
 /* AD_CAROUSEL_V3_START */
 .ad-story{position:relative;display:block;min-height:100svh;height:100svh;overflow:hidden;background:#171d1a;color:#fff;isolation:isolate}
@@ -26,7 +26,7 @@
 .ad-story-dots button.is-active{width:34px;border-radius:999px;background:#ffd43b}
 .ad-story-progress{position:absolute;z-index:4;left:0;right:0;bottom:0;height:4px;background:rgba(255,255,255,.14)}
 .ad-story-progress span{display:block;width:0;height:100%;background:#ffd43b}
-.ad-story-progress span.is-running{animation:adStoryProgress 5s linear forwards}
+.ad-story-progress span.is-running{animation:adStoryProgress 7s linear forwards}
 .ad-story-note{position:absolute;z-index:4;left:clamp(18px,3vw,46px);right:clamp(18px,3vw,46px);bottom:12px;margin:0;color:rgba(255,255,255,.72);font-size:10px;line-height:1.4;text-align:left}
 @keyframes adStoryProgress{from{width:0}to{width:100%}}
 @media(max-width:800px){
@@ -111,7 +111,7 @@
   var index=0,timer=null,paused=false,reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   function restartProgress(){progress.classList.remove('is-running');void progress.offsetWidth;if(!paused&&!reduced)progress.classList.add('is-running');}
   function show(next,userAction){index=(next+slides.length)%slides.length;track.style.transform='translate3d(-'+(index*25)+'%,0,0)';slides.forEach(function(s,i){s.classList.toggle('is-active',i===index);s.setAttribute('aria-hidden',i===index?'false':'true');});dots.forEach(function(d,i){d.classList.toggle('is-active',i===index);if(i===index)d.setAttribute('aria-current','true');else d.removeAttribute('aria-current');});restartProgress();if(userAction)start();}
-  function start(){clearInterval(timer);if(!paused&&!reduced)timer=setInterval(function(){show(index+1,false);},5000);}
+  function start(){clearInterval(timer);if(!paused&&!reduced)timer=setInterval(function(){show(index+1,false);},7000);}
   function setPaused(value){paused=value;if(paused){clearInterval(timer);progress.classList.remove('is-running');}else{restartProgress();start();}}
   root.querySelector('.ad-story-prev').addEventListener('click',function(){show(index-1,true);});
   root.querySelector('.ad-story-next').addEventListener('click',function(){show(index+1,true);});
