@@ -237,7 +237,7 @@ h2 em.hl{font-style:normal;color:var(--accent);background:linear-gradient(transp
 .h2-pre{margin:0 0 10px;font-size:clamp(1.05rem,2.4vw,1.35rem);font-weight:700;color:var(--sub)}
 .peak h2{font-size:clamp(1.9rem,4.8vw,3.2rem);line-height:1.35;margin-bottom:26px}
 .peak .num{font-size:16px}
-.dark{background:var(--navy-deep);color:#fff;border-top:0}
+.dark{background:#173a5e !important;color:#fff;border-top:0}
 .dark h2{color:#fff}
 .dark h2 em.hl{color:#f4b067;background:none}
 .dark .lead{color:#c9d6e4}
@@ -246,6 +246,16 @@ h2 em.hl{font-style:normal;color:var(--accent);background:linear-gradient(transp
 .dark .powers span{color:#c9d6e4}
 .dark .quote{color:#fff}
 .dark .quote .accent{color:#f4b067}
+.find-overview{min-height:calc(100svh - 52px);display:flex;align-items:center}
+.find-overview .wrap{width:100%}
+.find-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:34px}
+.find-card{position:relative;min-height:230px;padding:26px 22px;border:1px solid var(--line);border-radius:16px;background:var(--bg);box-shadow:0 12px 32px rgba(22,38,58,.06);overflow:hidden}
+.find-card::before{content:attr(data-index);display:block;margin-bottom:22px;font:800 13px/1 Inter,sans-serif;letter-spacing:.12em;color:var(--accent)}
+.find-card h3{margin:0 0 12px;font-size:clamp(1.25rem,2.1vw,1.75rem);line-height:1.35;letter-spacing:-.03em}
+.find-card h3 em{display:block;font-style:normal;color:var(--accent)}
+.find-card p{margin:0;color:var(--sub);font-size:14px;line-height:1.8}
+.find-card:nth-child(3),.find-card:nth-child(4){background:var(--navy-deep);border-color:var(--navy-deep);color:#fff}
+.find-card:nth-child(3) p,.find-card:nth-child(4) p{color:#d5e0eb}
 /* バージョン切り替え（小さく） */
 .ver{display:flex;justify-content:flex-end;gap:2px;align-items:center;padding:6px 16px;font-size:12px;color:var(--sub);background:var(--bg)}
 .ver span{margin-right:6px}
@@ -285,7 +295,7 @@ section[id]{scroll-margin-top:52px}
 .deadline p{margin:0;font-weight:700}
 .deadline .left{font-family:Inter,"Noto Sans JP",sans-serif;font-size:clamp(1.3rem,3vw,1.8rem);font-weight:800;color:var(--accent)}
 @media (max-width:1500px){.deck-key{display:none}}
-@media (max-width:860px){.next{grid-template-columns:1fr}}
+@media (max-width:860px){.next{grid-template-columns:1fr}.find-cards{grid-template-columns:1fr 1fr}.find-overview{min-height:auto}}
 @media print{.deck-nav{display:none}}
 @media (max-width:860px){
   .hero-grid{grid-template-columns:1fr}
@@ -305,7 +315,7 @@ section[id]{scroll-margin-top:52px}
 @media (max-width:520px){
   .wrap{padding:0 16px}
   body{font-size:16px}
-  .powers,.campaign ol{grid-template-columns:1fr}
+  .powers,.campaign ol,.find-cards{grid-template-columns:1fr}
   .step{grid-template-columns:1fr}
   .step .n{width:44px;height:44px;font-size:17px}
   .fig{padding:16px;overflow-x:auto}
@@ -629,50 +639,25 @@ section.opening{scroll-margin-top:0}
   </div>
 </section>
 
-<!-- 06 探すのが大変：数 -->
-<section class="" id="s-flow" data-nav="何千種類もある">
+<!-- 06 探すのが大変 -->
+<section class="alt peak find-overview" id="s-flow" data-nav="探すのが大変">
   <div class="wrap">
     <p class="num">06</p>
     <h2>まず、探すのが<em class="hl">すごく大変</em>なんです。</h2>
-    <p class="lead">国・都道府県・市区町村。補助金だけでなく、融資や税制優遇まで含めると、確認すべき制度は膨大です。</p>
-    <div class="stats">
-      <div class="stat"><b>何千種類</b><p>全国にある制度の中から、自社の地域・業種・投資内容に合うものを探します。</p></div>
-      <div class="stat"><b>3つの層</b><p>国、都道府県、市区町村。それぞれ別の場所で、別の形式で公開されます。</p></div>
+    <p class="lead">数が多い。掲載場所が違う。募集期間が短い。しかもルールが変わる。だから、人の手だけで追い続けるのは大変です。</p>
+    <div class="find-cards">
+      <article class="find-card" data-index="01"><h3><em>何千種類</em></h3><p>全国の制度から、自社の地域・業種・投資内容に合うものを探します。</p></article>
+      <article class="find-card" data-index="02"><h3><em>3つの層</em></h3><p>国、都道府県、市区町村。それぞれ別の場所・形式で公開されます。</p></article>
+      <article class="find-card" data-index="03"><h3>制度は、<em>1〜2か月で切り替わる</em></h3><p>気づいてから要件を読み、社内で決めている間にも締切が近づきます。</p></article>
+      <article class="find-card" data-index="04"><h3>ルールが、<em>たびたび変わる</em></h3><p>対象企業、使える経費、必要書類、募集時期を毎回確認する必要があります。</p></article>
     </div>
   </div>
 </section>
 
-<!-- 07 探すのが大変：期間 -->
-<section id="s-stuck" data-nav="1〜2か月で切り替わる" class="alt">
-  <div class="wrap">
-    <p class="num">07</p>
-    <p class="h2-pre">見つけても、ずっと募集しているわけではありません。</p>
-    <h2>制度は、<em class="hl nobr">1〜2か月で切り替わる</em>ことがあります。</h2>
-    <p class="lead">募集が始まり、気づき、要件を読み、社内で決める。そこから計画書を書き始めるのでは、間に合わないことがあります。</p>
-    <div class="fig"><p class="fig-title">情報を見つけるまでにも、締切は近づきます</p><div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;text-align:center;font-weight:900"><div style="padding:22px 10px;background:var(--gray-soft);border-radius:10px">公募開始</div><div style="padding:22px 10px;background:var(--gray-soft);border-radius:10px">情報を発見</div><div style="padding:22px 10px;background:var(--accent-soft);border-radius:10px;color:var(--accent)">要件確認・準備</div><div style="padding:22px 10px;background:var(--navy);border-radius:10px;color:#fff">締切</div></div></div>
-  </div>
-</section>
-
-<!-- 08 探すのが大変：ルール -->
-<section class="" id="s-time" data-nav="ルールが変わる">
-  <div class="wrap">
-    <p class="num">08</p>
-    <p class="h2-pre">去年の知識を、そのまま使えるとも限りません。</p>
-    <h2>対象・経費・様式などのルールが、<em class="hl">たびたび変わります。</em></h2>
-    <p class="lead">制度名が同じでも、対象になる会社、使える経費、必要な書類が変わることがあります。毎回、最新の公募要領を読み直す必要があります。</p>
-    <div class="reasons">
-      <div class="rs"><b>CHANGE 01</b><h3>対象になる会社</h3><p>業種・規模・所在地・創業年などの条件が変わります。</p></div>
-      <div class="rs"><b>CHANGE 02</b><h3>使える経費</h3><p>設備、広告、人材、システムなど、対象範囲が変わります。</p></div>
-      <div class="rs"><b>CHANGE 03</b><h3>必要な書類</h3><p>様式や加点項目、事前に取る認定が変わります。</p></div>
-      <div class="rs"><b>CHANGE 04</b><h3>募集の時期</h3><p>開始日・締切・事業実施期間が毎回異なります。</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- 08 中心：2本柱 -->
+<!-- 07 中心：2本柱 -->
 <section class="alt peak" id="s-core" data-nav="中心">
   <div class="wrap">
-    <p class="num">09 ／ このサービスの中心</p>
+    <p class="num">07 ／ このサービスの中心</p>
     <h2>そこで、探すのも書くのもAIで。<br><em class="hl">何倍も集めて、<span class="nobr">何倍も速く書きます。</span></em></h2>
     <p class="lead">補助金情報を見るだけのサービスではありません。制度を見逃さず、見つかったときに事業計画を素早く準備し、短い締切でも申請へ動ける会社をつくるサービスです。</p>
     <div class="pillars">
@@ -694,10 +679,10 @@ section.opening{scroll-margin-top:0}
   </div>
 </section>
 
-<!-- 09 探す：毎週届く -->
+<!-- 08 探す：毎週届く -->
 <section class="" id="s-find" data-nav="毎週届く">
   <div class="wrap">
-    <p class="num">10 ／ 探す</p>
+    <p class="num">08 ／ 探す</p>
     <h2><em class="hl nobr">毎週金曜の朝</em>、御社に合う制度が届きます。</h2>
     <p class="lead">国や自治体のサイトを見て回る必要はありません。届いたときに「うちに関係あるか」を考えるだけです。</p>
     <div class="digest-row">
@@ -712,20 +697,20 @@ section.opening{scroll-margin-top:0}
   </div>
 </section>
 
-<!-- 10 探す：検討中 -->
+<!-- 09 探す：検討中 -->
 <section id="s-watch" data-nav="検討中" class="alt">
   <div class="wrap">
-    <p class="num">11 ／ 探す</p>
+    <p class="num">09 ／ 探す</p>
     <h2>気になる制度は「検討中」へ。<em class="hl nobr">締切を見逃しません。</em></h2>
     <p class="lead">締切の近い順に並び、「あと何日」が大きく出ます。気づいたら終わっていた、はもう起きません。</p>
     <figure class="shot"><div class="bar"><i></i><i></i><i></i><span>検討中</span></div><img src="https://writeup-inc.github.io/saas/jmatch-engine/direct-guide/img/watch.jpg" alt="検討中の一覧。あと27日、あと45日など、締切までの日数が大きく表示される" width="1920" height="1200" loading="lazy"></figure>
   </div>
 </section>
 
-<!-- 11 書く：質問 -->
+<!-- 10 書く：質問 -->
 <section class="" id="s-write" data-nav="強みは聞かない">
   <div class="wrap">
-    <p class="num">12 ／ 書く</p>
+    <p class="num">10 ／ 書く</p>
     <h2>書くときも、「強みを書いてください」とは<em class="hl nobr">聞きません。</em></h2>
     <p class="lead">申請書では、いきなり「自社の強みを書いてください」と聞かれます。これでは、なかなか手が動きません。Jマッチエンジンでは、AIが答えやすい質問に分けて、順番に聞いていきます。事実を思い出して答えると、それが事業計画の土台になります。</p>
     <ul class="ask-list">
@@ -745,10 +730,10 @@ section.opening{scroll-margin-top:0}
   </div>
 </section>
 
-<!-- 12 書く：埋まっていく -->
+<!-- 11 書く：埋まっていく -->
 <section id="s-tool" data-nav="計画書が埋まる" class="alt">
   <div class="wrap">
-    <p class="num">13 ／ 書く</p>
+    <p class="num">11 ／ 書く</p>
     <h2>答えた分だけ、<em class="hl nobr">計画書が埋まっていきます。</em></h2>
     <p class="lead">AIを使ったことがなくても大丈夫です。初期設定は導入時にご案内します。申請の代行はしません。仕上げは御社か、有資格者の先生です。</p>
     <figure class="shot"><div class="bar"><i></i><i></i><i></i><span>事業計画書をつくる（AIツール）</span></div><img src="https://writeup-inc.github.io/saas/jmatch-engine/direct-guide/img/writer.jpg" alt="事業計画書をつくる画面。制度を選ぶ、カルテから下書き、質問に答える、書き出して確認の4段階。左に計画書の章、右にAIからの質問と下書き" width="1371" height="896" loading="lazy"></figure>
@@ -757,10 +742,10 @@ section.opening{scroll-margin-top:0}
   </div>
 </section>
 
-<!-- 13 見本 -->
+<!-- 12 見本 -->
 <section class="" id="s-library" data-nav="採択された見本">
   <div class="wrap">
-    <p class="num">14</p>
+    <p class="num">12</p>
     <h2>白紙からではなく、<em class="hl nobr">採択された見本</em>を見ながら書けます。</h2>
     <p class="lead">採択された事業計画書や、書き方の解説動画、テンプレートをそろえました。「どこまで具体的に書くか」「売上効果をどう数字で示すか」が分かります。</p>
     <div class="two">
@@ -773,10 +758,10 @@ section.opening{scroll-margin-top:0}
   </div>
 </section>
 
-<!-- 14 使い回し -->
+<!-- 13 使い回し -->
 <section id="s-reuse" data-nav="何度でも使える" class="alt">
   <div class="wrap">
-    <p class="num">15</p>
+    <p class="num">13</p>
     <h2>一度書いた内容は、<em class="hl nobr">何度でも使えます。</em></h2>
     <p class="lead">会社の概要、お客様、市場、強み、やること、効果。聞かれることは、制度が変わっても大きくは変わりません。書いた内容は会社カルテに貯まり、次は書き足すだけです。</p>
     <div class="reuse">
@@ -792,10 +777,10 @@ section.opening{scroll-margin-top:0}
   </div>
 </section>
 
-<!-- 15 釣り方が残る -->
+<!-- 14 釣り方が残る -->
 <section class="alt peak dark" id="s-skill" data-nav="釣り方">
   <div class="wrap">
-    <p class="num">16</p>
+    <p class="num">14</p>
     <h2>1匹の魚ではなく、<br><em class="hl nobr">釣り方</em>が会社に残ります。</h2>
     <p class="lead">採択されても、されなくても。使い続けるうちに、次の4つが会社に残ります。補助金の準備が、そのままAIの実地研修になります。</p>
     <ul class="powers">
@@ -808,10 +793,10 @@ section.opening{scroll-margin-top:0}
   </div>
 </section>
 
-<!-- 16 脇の支援 -->
+<!-- 15 脇の支援 -->
 <section class="" id="s-help" data-nav="人の支援">
   <div class="wrap">
-    <p class="num">17 ／ 脇を固める支援</p>
+    <p class="num">15 ／ 脇を固める支援</p>
     <h2>それでも迷うときは、<em class="hl nobr">人がいます。</em></h2>
     <p class="lead">主役はAIですが、進めるうちにぶつかる壁が3つあります。それぞれに人の支援を用意しました。</p>
     <div class="supports">
@@ -833,10 +818,10 @@ section.opening{scroll-margin-top:0}
   </div>
 </section>
 
-<!-- 17 料金 -->
+<!-- 16 料金 -->
 <section class="alt peak" id="s-price" data-nav="料金">
   <div class="wrap">
-    <p class="num">18 ／ 料金</p>
+    <p class="num">16 ／ 料金</p>
     <h2>初期登録費用10万円＋<span class="nobr">月額3万円。</span><br><em class="hl">成功報酬はいただきません。</em></h2>
     <p class="lead">使う量や採択の有無で、料金が変わることはありません。毎月の仕組みとして、制度を見つけ、計画書の土台をつくれる状態を整えます。</p>
     <div class="price">
@@ -861,10 +846,10 @@ section.opening{scroll-margin-top:0}
   </div>
 </section>
 
-<!-- 18 はじめ方 -->
+<!-- 17 はじめ方 -->
 <section class="" id="s-next" data-nav="はじめ方">
   <div class="wrap">
-    <p class="num">19 ／ はじめ方</p>
+    <p class="num">17 ／ はじめ方</p>
     <h2>お申し込みから使い始めるまで、<em class="hl nobr">3つの手順</em>です。</h2>
     <p class="lead">いま検討している投資や採用の予定を伺い、会社情報を登録すれば、制度の配信とAIツールの利用が始まります。</p>
     <ol class="next">
